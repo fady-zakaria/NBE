@@ -12,13 +12,16 @@ import notification from '../assets/icons/Notification.png';
 import fingerprint from '../assets/icons/fingerprint.png';
 import loginbg from '../assets/images/loginbg.png';
 import logo from '../assets/images/logo.png';
-import userinput from '../assets/icons/username.png';
+import userinput from '../assets/icons/username_light.png';
+import userinputDark from '../assets/icons/username.png';
 import pass from '../assets/icons/password.png';
 import passViewOFF from '../assets/icons/password2.png';
 import passViewON from '../assets/icons/passViewON.png';
 import fingerprintbigger from '../assets/icons/fingerprintbigger.png';
 import logoGreen from '../assets/images/logo2.png';
+import logoDark from '../assets/images/logo_dark.png';
 import back from '../assets/icons/back.png';
+import backDark from '../assets/icons/back_dark.png';
 import Mobile from '../assets/icons/mobile.png';
 import homeIconUnfocus from '../assets/icons/home.png';
 import homeIconfocus from '../assets/icons/home2.png';
@@ -44,21 +47,27 @@ import carrefour from '../assets/images/carrefour.png';
 import ikea from '../assets/images/ikea.png';
 import amazon from '../assets/images/amazon.png';
 import jumia from '../assets/images/jumia.png';
+import personDark from '../assets/icons/person.png';
+import person from '../assets/icons/person_light.png';
+import Balancebg from '../assets/images/Balancebg.png';
 
 export {accounts, utility, cards, history};
 export {user1, user2, user3, user4};
 export {hamburger, user, notification};
-export {fingerprint};
+export {fingerprint, Balancebg};
 export {
   loginbg,
   logo,
   userinput,
+  person,
+  personDark,
+  userinputDark,
   pass,
   passViewOFF,
   passViewON,
   fingerprintbigger,
 };
-export {logoGreen, back, Mobile};
+export {logoGreen, back, Mobile, backDark, logoDark};
 export {
   homeIconUnfocus,
   homeIconfocus,
@@ -85,4 +94,5 @@ export {
 };
 
 export {carrefour, amazon, ikea, jumia};
+
 // export const acc = require('./accounts.png');

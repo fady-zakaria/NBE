@@ -33,13 +33,9 @@ const Header = () => {
           <Text style={styles.userName}>Ahmed</Text>
         </View>
       </View>
-      <View style={styles.Notifybtn}>
-        <TouchableOpacity
-          // onPress={props.onPress}
-          style={styles.Notifybtn}>
-          <Image source={notification} />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.Notifybtn}>
+        <Image source={notification} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -53,8 +49,9 @@ const styles = StyleSheet.create({
     flexWrap: 'nowrap',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: 10,
     backgroundColor: 'inherit',
+    marginLeft: 26,
+    marginRight: 24,
   },
   userIcon: {
     borderRadius: 10,
@@ -88,10 +85,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     backgroundColor: 'white',
-    marginRight: 10,
     borderRadius: 11,
   },
 });

@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import React from 'react';
 import {
   BalanceContainer,
@@ -7,23 +14,25 @@ import {
   TotalBalance,
   FingerPrintContainer,
 } from './Balance.styles';
-import {fingerprint} from '../../constants/imgs';
+import {fingerprint, Balancebg} from '../../constants/imgs';
 const Balance = () => {
   return (
     <BalanceContainer>
-      <BalanceTitleWrap>
+      <ImageBackground source={Balancebg} style={{overflow: 'hidden'}}>
+        <BalanceTitleWrap>
+          <View>
+            <Balancetitle>Balance</Balancetitle>
+          </View>
+          <FingerPrintContainer>
+            <TouchableOpacity>
+              <Image source={fingerprint} />
+            </TouchableOpacity>
+          </FingerPrintContainer>
+        </BalanceTitleWrap>
         <View>
-          <Balancetitle>Balance</Balancetitle>
+          <TotalBalance>$2,374,654.25</TotalBalance>
         </View>
-        <FingerPrintContainer>
-          <TouchableOpacity>
-            <Image source={fingerprint} />
-          </TouchableOpacity>
-        </FingerPrintContainer>
-      </BalanceTitleWrap>
-      <View>
-        <TotalBalance>$2,374,654.25</TotalBalance>
-      </View>
+      </ImageBackground>
     </BalanceContainer>
   );
 };

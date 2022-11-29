@@ -9,6 +9,7 @@ export const BalanceContainer = styled.View`
   margin: 25px;
   width: 347px;
   height: 150px;
+  overflow: hidden;
 `;
 export const BalanceTitleWrap = styled.View`
   display: flex;

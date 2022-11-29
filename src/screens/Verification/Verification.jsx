@@ -1,17 +1,25 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useLayoutEffect, useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import BackButton from '../../components/NavigationEdit/BackButton';
-import HeaderRight from '../../components/NavigationEdit/HeaderRight';
-import NavButton from '../../components/NavigationEdit/NavButton';
+import BackButton from '../../components/CustomStackNavigation/BackButton';
+import HeaderRight from '../../components/CustomStackNavigation/HeaderRight';
+import NavButton from '../../components/CustomStackNavigation/NavButton';
 import {TitleParagraph, TitleDesc} from '../../constants/styles';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
+import {useSelector} from 'react-redux';
+import {UserInputs} from '../../redux/features/Signup/SignupSlice';
+import {VerificationContainer} from './Verification.styles';
+import {ThemeIndicator} from '../../redux/features/UI_Theme/UI_ThemeSlice';
 
 const Verification = () => {
   const navigation = useNavigation();
-  const route = useRoute();
-  const MobileNumber = route.params.userMobileNumber;
-  console.log('mobileno. from Verification Code', MobileNumber);
+  const isDarkMode = useSelector(ThemeIndicator);
+  const newuserinputs = useSelector(UserInputs);
+  console.log('from verificarion', newuserinputs);
+  // console.log('from verificarion', newuserinputs.mobileNumber);
+  // const route = useRoute();
+  // const MobileNumber = route.params.userMobileNumber;
+  // console.log('mobileno. from Verification Code', MobileNumber);
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => {
@@ -24,15 +32,17 @@ const Verification = () => {
   }, [navigation]);
 
   const CodeVerification = () => {
-    navigation.navigate('Home');
+    navigation.navigate('password');
   };
 
   return (
-    <View style={styles.VerificationContainer}>
+    <VerificationContainer darkMode={isDarkMode}>
       <View>
-        <TitleParagraph>Verification</TitleParagraph>
-        {MobileNumber && (
-          <TitleDesc>Enter 5 digit code we sent to +{MobileNumber}</TitleDesc>
+        <TitleParagraph darkMode={isDarkMode}>Verification</TitleParagraph>
+        {newuserinputs.mobileNumber && (
+          <TitleDesc>
+            Enter 5 digit code we sent to +2{newuserinputs.mobileNumber}
+          </TitleDesc>
         )}
         <OTPInputView
           style={{height: 100}}
@@ -43,21 +53,21 @@ const Verification = () => {
         />
       </View>
       <NavButton btnName={'Submit'} onPress={CodeVerification} />
-    </View>
+    </VerificationContainer>
   );
 };
 
 export default Verification;
 
 const styles = StyleSheet.create({
-  VerificationContainer: {
-    display: 'flex',
-    flex: 1,
-    backgroundColor: '#F1F3FB',
-    paddingHorizontal: 25,
-    alignContent: 'space-between',
-    justifyContent: 'space-between',
-  },
+  // VerificationContainer: {
+  //   display: 'flex',
+  //   flex: 1,
+  //   backgroundColor: '#F1F3FB',
+  //   paddingHorizontal: 25,
+  //   alignContent: 'space-between',
+  //   justifyContent: 'space-between',
+  // },
   OTPInput: {
     color: '#1C2437',
     backgroundColor: '#FFFFFF',

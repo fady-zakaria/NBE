@@ -3,7 +3,8 @@ import React from 'react';
 import {
   HistoryContainer,
   TransactionContainer,
-  ImageContainer,
+  TransactionText,
+  TransactionDate,
 } from './History.styles';
 import HomeContentTitle from '../HomeContentTitle/HomeContentTitle';
 import {TransactionsHistory} from '../../fakers/dummyData';
@@ -20,15 +21,16 @@ const Item = ({name, image, date, transaction}) => (
           resizeMode: 'cover',
           borderRadius: 10,
           backgroundColor: '#FFFFFF',
+          marginRight: 10,
         }}
       />
 
       <Column>
-        <Text>{name}</Text>
-        <Text>{date}</Text>
+        <TransactionText>{name}</TransactionText>
+        <TransactionDate>{date}</TransactionDate>
       </Column>
     </Row>
-    <Text>{transaction}</Text>
+    <TransactionText style={{fontWeight: '700'}}>{transaction}</TransactionText>
   </TransactionContainer>
 );
 

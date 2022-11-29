@@ -4,6 +4,7 @@ export const TabContainer = styled.View`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 35px;
 `;
 
 export const TabImgContainer = styled.View`
@@ -11,15 +12,12 @@ export const TabImgContainer = styled.View`
   display: flex;
   width: 60px;
   height: 60px;
-  margin-right: 35px;
   align-content: center;
   justify-content: center;
   align-items: center;
-  margin-left: 1px;
 `;
 
 export const TabTextCont = styled.View`
-  margin-left: -20px;
   margin-top: 10px;
 `;
 
@@ -29,6 +27,5 @@ export const TabText = styled.Text`
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-
   color: #1c2437;
 `;

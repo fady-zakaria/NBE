@@ -27,8 +27,11 @@ export const PassInput = styled.View`
   background: #ffffff;
   border: 1.5px solid #007236;
   border-radius: 10px;
-  margin: 21px 25px 19px 25px;
+  margin: 21px 0px 19px 0px;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 `;
 
 export const UserPasswordTitle = styled.Text`
@@ -42,11 +45,15 @@ export const UserPasswordTitle = styled.Text`
 `;
 
 export const PassContainer = styled.View`
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   align-content: space-between;
+  width: 70%; */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   width: 70%;
 `;
 
@@ -95,23 +102,4 @@ export const FingerPrintBigContainer = styled.View`
   border: 1.5px solid #f6a721;
   border-radius: 12.5px;
   padding: 11px;
-`;
-
-export const SignupText = styled.Text`
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: #ffffff;
-  text-align: center;
-`;
-
-export const SignupContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
 `;

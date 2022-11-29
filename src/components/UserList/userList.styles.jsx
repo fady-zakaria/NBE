@@ -7,7 +7,7 @@ export const UserListContainer = styled.View`
   margin-top: 30px;
   margin-left: 25px;
   margin-right: 24px;
-  height: 150px;
+  height: 120px;
 `;
 
 export const UserContainer = styled.View`

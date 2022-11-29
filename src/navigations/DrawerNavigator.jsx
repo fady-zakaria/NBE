@@ -6,10 +6,15 @@ import BottomTabsNavigator from './BottomTabsNavigator';
 import Deposits from '../screens/Deposits/Deposits';
 import {account} from '../constants/imgs';
 import DrawerButtonIcon from '../components/CustomDrawer/DrawerButtonIcon';
+import {useSelector, useDispatch} from 'react-redux';
+import {ThemeIndicator} from '../redux/features/UI_Theme/UI_ThemeSlice';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
+  const isDarkMode = useSelector(ThemeIndicator);
+  const DarkmodeBg = isDarkMode ? 'rgba(0, 50, 24, 0.91)' : '#F1F3FB';
+
   return (
     <Drawer.Navigator
       initialRouteName="Customer Services"
@@ -18,6 +23,15 @@ const DrawerNavigator = () => {
         drawerActiveBackgroundColor: '#007236',
         drawerActiveTintColor: '#FFFFFF',
         drawerInactiveTintColor: '#1B1B1B',
+        // drawerContentContainerStyle: {
+        //   height: '100%',
+        //   backgroundColor: 'red',
+        //   color: 'red',
+
+        // },
+        // drawerContentStyle: {
+        //   height: '100%',
+        // },
         drawerLabelStyle: {
           fontFamily: 'Roboto',
           fontStyle: 'normal',
@@ -28,20 +42,18 @@ const DrawerNavigator = () => {
           marginLeft: '-12%',
         },
         drawerStyle: {
-          backgroundColor: '#F1F3FB',
+          backgroundColor: DarkmodeBg,
           width: '83%',
           borderTopStartRadius: 0,
           borderTopEndRadius: 40,
           borderBottomEndRadius: 40,
           borderBottomStartRadius: 0,
           paddingTop: 21,
-          // paddingLeft: 20,
           paddingRight: 22,
         },
         drawerItemStyle: {
           borderRadius: 13,
           width: '100%',
-
           padding: 0,
           display: 'flex',
           justifyContent: 'flex-start',
