@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {colors} from '../../utils/colors';
 
 export const TabButtonText = styled.Text`
   font-family: 'Roboto';
@@ -7,13 +8,12 @@ export const TabButtonText = styled.Text`
   font-size: 10px;
   line-height: 12px;
   text-align: center;
-  color: #b7b7b7;
+  color: ${props => (props.isfocused ? '#ffffff' : '#b7b7b7')};
 `;
 
 export const TabBarButtonContainer = styled.View`
   display: flex;
-  flex-dirction: column;
-  background: #f1f3fb;
+  flex-direction: column;
   border-radius: 16px;
   align-items: center;
   width: 17.5%;
@@ -23,12 +23,14 @@ export const TabBarButtonContainer = styled.View`
   gap: 5px;
   margin-right: 9px;
   margin-left: 0;
+  background: ${props =>
+    props.darkMode ? colors.OneBottomTab_DarkBg : colors.lightbg};
+  overflow: hidden;
 `;
 
 export const TabBarButtonContainerWithoutMarign = styled.View`
   display: flex;
-  flex-dirction: column;
-  background: #f1f3fb;
+  flex-direction: column;
   border-radius: 16px;
   align-items: center;
   width: 20%;
@@ -38,4 +40,7 @@ export const TabBarButtonContainerWithoutMarign = styled.View`
   gap: 5px;
   margin-right: 0px;
   margin-left: 0px;
+  overflow: hidden;
+  background: ${props =>
+    props.darkMode ? colors.OneBottomTab_DarkBg : colors.lightbg};
 `;

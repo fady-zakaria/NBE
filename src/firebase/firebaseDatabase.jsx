@@ -50,11 +50,18 @@ export const StoreUserData = (
   });
 };
 
-export async function fetchuser(userId) {
+export const fetchuser = async userId => {
   const response = await axios.get(BACKEND_URL + `/users/${userId}.json`);
 
-  const userData = {};
-  console.log('response.data from firebase', response.data);
+  // console.log('response.data from firebase', response.data);
+  const userData = {
+    id: userId,
+    email: response.data.email,
+    firstName: response.data.firstname,
+    lastName: response.data.lastname,
+    mobileNumber: response.data.mobileNumber,
+  };
+  console.log('userData from firebase', userData);
   //   for (const key in response.data) {
   //     const expenseObj = {
   //       id: key,
@@ -65,8 +72,37 @@ export async function fetchuser(userId) {
   //     expenses.push(expenseObj);
   //   }
 
-  //   return expenses;
-}
+  return userData;
+};
+
+export const storeBeneficiaries = Account => {
+  axios.post(BACKEND_URL + `/Beneficiaries.json`, Account);
+};
+
+export const getBeneficiaries = async () => {
+  const response = await axios.get(BACKEND_URL + '/Beneficiaries.json');
+  // console.log('response date from firebase', response.data);
+  const Accounts = [];
+
+  for (const key in response.data) {
+    const account = {
+      id: key,
+      firstName: response.data[key].firstName,
+      lastName: response.data[key].lastName,
+      arabicName: response.data[key].arabicName,
+      email: response.data[key].email,
+      phoneNumber: response.data[key].phoneNumber,
+      image: response.data[key].image,
+      bankBranch: response.data[key].bankBranch,
+      accountNumber: response.data[key].accountNumber,
+      balance: response.data[key].balance,
+      TransactionsHistory: response.data[key].TransactionsHistory,
+    };
+    Accounts.push(account);
+  }
+  // console.log('Accounts from firebase', Accounts);
+  return Accounts;
+};
 
 // export const getUserData = userId => {
 //   //   const dbRef = ref(db);

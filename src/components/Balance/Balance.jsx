@@ -6,7 +6,7 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   BalanceContainer,
   Balancetitle,
@@ -15,13 +15,18 @@ import {
   FingerPrintContainer,
 } from './Balance.styles';
 import {fingerprint, Balancebg} from '../../constants/imgs';
+import {useTranslation} from 'react-i18next';
+import i18n from '../../constants/ArabicLanguage';
+import {LanguageIndicator} from '../../redux/features/ArabicMode/ArabicModeSlice';
 const Balance = () => {
+  const {t, i18n} = useTranslation();
+  const [balance, setBalance] = useState(false);
   return (
     <BalanceContainer>
       <ImageBackground source={Balancebg} style={{overflow: 'hidden'}}>
         <BalanceTitleWrap>
           <View>
-            <Balancetitle>Balance</Balancetitle>
+            <Balancetitle>{t('Balance')}</Balancetitle>
           </View>
           <FingerPrintContainer>
             <TouchableOpacity>
@@ -30,7 +35,13 @@ const Balance = () => {
           </FingerPrintContainer>
         </BalanceTitleWrap>
         <View>
-          <TotalBalance>$2,374,654.25</TotalBalance>
+          <TouchableOpacity onPress={() => setBalance(true)}>
+            {balance ? (
+              <TotalBalance>$2,374,654.25</TotalBalance>
+            ) : (
+              <TotalBalance>{t('Press here to show balance')}</TotalBalance>
+            )}
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </BalanceContainer>

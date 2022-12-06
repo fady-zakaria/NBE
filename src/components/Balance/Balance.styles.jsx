@@ -7,7 +7,7 @@ export const BalanceContainer = styled.View`
   border-radius: 22px;
   background: #003d1d;
   margin: 25px;
-  width: 347px;
+  /* width: 347px; */
   height: 150px;
   overflow: hidden;
 `;
@@ -33,7 +33,7 @@ export const TotalBalance = styled.Text`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 29px;
   text-align: center;
   color: #f7f7f7;

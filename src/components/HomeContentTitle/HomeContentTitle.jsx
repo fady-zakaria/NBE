@@ -1,16 +1,29 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  I18nManager,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {TitleParagraph, SmallParagraph} from '../../constants/styles';
 import {HomeContentTitleContainer} from './HomeContentTitle.styles';
+import {useSelector} from 'react-redux';
+import {ThemeIndicator} from '../../redux/features/UI_Theme/UI_ThemeSlice';
 
-const HomeContentTitle = ({title}) => {
+const HomeContentTitle = ({title, viewAll}) => {
+  const isDarkMode = useSelector(ThemeIndicator);
   return (
     <HomeContentTitleContainer>
       <View>
-        <TitleParagraph>{title}</TitleParagraph>
+        <TitleParagraph darkMode={isDarkMode}>{title}</TitleParagraph>
       </View>
       <TouchableOpacity>
-        <SmallParagraph>View All</SmallParagraph>
+        {I18nManager.isRTL ? (
+          <SmallParagraph>{viewAll}</SmallParagraph>
+        ) : (
+          <SmallParagraph>View All</SmallParagraph>
+        )}
       </TouchableOpacity>
     </HomeContentTitleContainer>
   );

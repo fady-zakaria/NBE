@@ -21,7 +21,7 @@ export const UserNameTitle = styled.Text`
   margin-top: 11px;
 `;
 
-export const PassInput = styled.View`
+export const PassInputContainer = styled.View`
   display: flex;
   flex-direction: row;
   background: #ffffff;
@@ -45,12 +45,6 @@ export const UserPasswordTitle = styled.Text`
 `;
 
 export const PassContainer = styled.View`
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-between;
-  width: 70%; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -64,6 +58,7 @@ export const PassCheck = styled.View`
   align-items: center;
   align-content: space-between;
   margin: 0px 25px 21px 25px;
+  /* width: 20%; */
 `;
 
 export const LoginBtn = styled.View`
@@ -102,4 +97,32 @@ export const FingerPrintBigContainer = styled.View`
   border: 1.5px solid #f6a721;
   border-radius: 12.5px;
   padding: 11px;
+`;
+
+export const EmailInput = styled.TextInput`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #fff;
+  /* text-align: left; */
+`;
+
+export const EmailInputContainer = styled.View`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 80%;
+`;
+
+export const PassInput = styled.TextInput`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1c2437;
+
+  /* text-align: left; */
+  /* text-align: ${props => (props.isArabicLang ? 'right' : 'left')}; */
+  /* text-align: right; */
 `;

@@ -14,13 +14,22 @@ export const Row = styled.View`
 `;
 
 export const TitleParagraph = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Bold';
   font-style: normal;
-  font-weight: 700;
   font-size: 20px;
   line-height: 23px;
   color: ${props =>
     props.darkMode ? colors.Main_white : colors.Light_Primary};
+`;
+
+export const SmallTitleParagraph = styled.Text`
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: ${colors.Light_Primary};
+  /* color: ${props =>
+    props.darkMode ? colors.Main_white : colors.Light_Primary}; */
 `;
 
 export const SmallParagraph = styled.Text`
@@ -35,10 +44,18 @@ export const SmallParagraph = styled.Text`
 export const TitleDesc = styled.Text`
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #b7b7b7;
+`;
+
+export const SmallText = styled.Text`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #b7b7b7;
+  margin: 0 5px;
 `;
 
 export const SwitchAuthContainer = styled.View`
@@ -47,8 +64,10 @@ export const SwitchAuthContainer = styled.View`
   justify-content: center;
   align-items: center;
   align-content: center;
-  text-align: center;
+  /* text-align: start; */
+  direction: rtl;
 `;
+/* text-align: ${props => (props.isArabicLang ? right : left)}; */
 
 export const SwitchAuthText = styled.Text`
   font-family: 'Roboto';

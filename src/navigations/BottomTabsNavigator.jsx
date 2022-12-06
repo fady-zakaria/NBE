@@ -9,16 +9,24 @@ import AirPay from '../screens/AirPay/AirPay';
 import CustomTabBarButton from '../components/CustomTabNavigation/CustomTabBarButton';
 import TabBarButtonIcon from '../components/CustomTabNavigation/TabBarButtonIcon';
 import TabBarButtonLabel from '../components/CustomTabNavigation/TabBarButtonLabel';
+import {useSelector} from 'react-redux';
+import {ThemeIndicator} from '../redux/features/UI_Theme/UI_ThemeSlice';
+import {colors} from '../utils/colors';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabsNavigator = () => {
+  const isDarkMode = useSelector(ThemeIndicator);
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarStyle: styles.tobBarStyle,
+        tabBarHideOnKeyboard: true,
+        tabBarStyle: [
+          styles.tabBarStyle,
+          isDarkMode ? styles.tabBarDarkbg : styles.tabBarLightbg,
+        ],
         tabBarButton: props => (
           <CustomTabBarButton routeName={route.name} {...props} />
         ),
@@ -33,17 +41,7 @@ const BottomTabsNavigator = () => {
           );
         },
       })}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={
-          {
-            //   tabBarButton: () => {
-            //     <CustomTabBarButton tabName="home" />;
-            //   },
-          }
-        }
-      />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Transfer" component={Transfer} />
       <Tab.Screen name="Beneficiaries" component={Beneficiaries} />
       <Tab.Screen name="ATMs" component={ATMs} />
@@ -55,8 +53,8 @@ const BottomTabsNavigator = () => {
 export default BottomTabsNavigator;
 
 const styles = StyleSheet.create({
-  tobBarStyle: {
-    backgroundColor: '#FFFFFF',
+  tabBarStyle: {
+    overflow: 'hidden',
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
     borderBottomEndRadius: 0,
@@ -65,5 +63,18 @@ const styles = StyleSheet.create({
     height: '11%',
     paddingLeft: 6,
     paddingRight: 4,
+    borderTopWidth: 0,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  tabBarLightbg: {
+    backgroundColor: colors.Main_white,
+    borderTopColor: colors.Main_white,
+  },
+  tabBarDarkbg: {
+    backgroundColor: colors.BottomTab_DarkBg,
+    borderTopColor: colors.BottomTab_DarkBg,
   },
 });

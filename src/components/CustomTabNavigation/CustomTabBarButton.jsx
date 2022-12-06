@@ -4,21 +4,25 @@ import {
   TabBarButtonContainer,
   TabBarButtonContainerWithoutMarign,
 } from './CustomTabBarButton.styles';
+import {useSelector} from 'react-redux';
+import {ThemeIndicator} from '../../redux/features/UI_Theme/UI_ThemeSlice';
 
 const CustomTabBarButton = props => {
   const {routeName, children, accessibilityState, onPress} = props;
-  console.log('route from bar btn', routeName);
+  const isDarkMode = useSelector(ThemeIndicator);
 
   return (
     <>
       {routeName === 'Air Pay' ? (
         <TabBarButtonContainerWithoutMarign
-          style={accessibilityState.selected && {backgroundColor: '#007236'}}>
+          style={accessibilityState.selected && {backgroundColor: '#007236'}}
+          darkMode={isDarkMode}>
           <TouchableOpacity onPress={onPress}>{children}</TouchableOpacity>
         </TabBarButtonContainerWithoutMarign>
       ) : (
         <TabBarButtonContainer
-          style={accessibilityState.selected && {backgroundColor: '#007236'}}>
+          style={accessibilityState.selected && {backgroundColor: '#007236'}}
+          darkMode={isDarkMode}>
           <TouchableOpacity onPress={onPress}>{children}</TouchableOpacity>
         </TabBarButtonContainer>
       )}

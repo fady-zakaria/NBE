@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
+  I18nManager,
 } from 'react-native';
 import React from 'react';
 import {
@@ -14,8 +15,11 @@ import {
 } from './userList.styles';
 import {Users} from '../../fakers/dummyData';
 import HomeContentTitle from '../HomeContentTitle/HomeContentTitle';
+import {useTranslation} from 'react-i18next';
+import i18n from '../../constants/ArabicLanguage/index';
+import {LanguageIndicator} from '../../redux/features/ArabicMode/ArabicModeSlice';
 
-const Item = ({name, image}) => (
+const Item = ({name, image, arabicName}) => (
   <TouchableOpacity>
     <UserContainer style={styles.UserContainerStyle}>
       <Image
@@ -27,16 +31,23 @@ const Item = ({name, image}) => (
           marginBottom: 5,
         }}
       />
-      <UserNameText>{name}</UserNameText>
+      {I18nManager.isRTL ? (
+        <UserNameText>{arabicName}</UserNameText>
+      ) : (
+        <UserNameText>{name}</UserNameText>
+      )}
     </UserContainer>
   </TouchableOpacity>
 );
 
 const UserList = () => {
-  const renderItem = ({item}) => <Item name={item.name} image={item.image} />;
+  const {t, i18n} = useTranslation();
+  const renderItem = ({item}) => (
+    <Item name={item.name} image={item.image} arabicName={item.arabicName} />
+  );
   return (
     <UserListContainer>
-      <HomeContentTitle title="Send money" />
+      <HomeContentTitle title={t('Send money')} viewAll={t('all users')} />
       <View>
         <FlatList
           data={Users}

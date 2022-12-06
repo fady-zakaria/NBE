@@ -14,7 +14,7 @@ import {setPassword} from '../../redux/features/Signup/SignupSlice';
 import {PasswordContainer, PasswordInputContainer} from './Password.styles';
 import PasswordInput from '../../components/PasswordInput/PasswordInput';
 import {createUser} from '../../firebase/auth';
-import {setAuthToken} from '../../redux/features/auth/authSlice';
+import {setUserAuth} from '../../redux/features/auth/authSlice';
 import {StoreUserData} from '../../firebase/firebaseDatabase';
 
 const Password = () => {
@@ -65,7 +65,7 @@ const Password = () => {
         newuserinputs.email,
         values.password,
       );
-      dispatch(setAuthToken(token));
+      dispatch(setUserAuth({token: token, userId: localid}));
       console.log('token from password', token);
       console.log('local id from password', localid);
       StoreUserData(

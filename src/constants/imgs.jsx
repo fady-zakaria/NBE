@@ -7,6 +7,7 @@ import user2 from '../assets/images/user2.png';
 import user3 from '../assets/images/user3.png';
 import user4 from '../assets/images/user4.png';
 import hamburger from '../assets/icons/hamburger.png';
+import hamburgerDark from '../assets/icons/hamburger_dark.png';
 import user from '../assets/images/user.png';
 import notification from '../assets/icons/Notification.png';
 import fingerprint from '../assets/icons/fingerprint.png';
@@ -50,10 +51,24 @@ import jumia from '../assets/images/jumia.png';
 import personDark from '../assets/icons/person.png';
 import person from '../assets/icons/person_light.png';
 import Balancebg from '../assets/images/Balancebg.png';
+import addIcon from '../assets/icons/addbtn.png';
+import addIconWhite from '../assets/icons/addbtn_white.png';
+import optionIcon from '../assets/icons/option.png';
+import horizontalView from '../assets/icons/horizontalView.png';
+import verticalView from '../assets/icons/verticalView.png';
+import moneyIcon from '../assets/icons/money.png';
+import telephoneIcon from '../assets/icons/telephone.png';
+import emptyPageIcon from '../assets/images/empty_page.png';
+import visa1 from '../assets/images/visa1.png';
+import visa2 from '../assets/images/visa2.png';
+// import dragBox from '../assets/images/Dragbox.png';
+// import dragBoxDark from '../assets/images/DragboxDark.png';
+import rightdialog from '../assets/images/rightdialog.png';
+import wrongdialog from '../assets/images/wrongdialog.png';
 
 export {accounts, utility, cards, history};
 export {user1, user2, user3, user4};
-export {hamburger, user, notification};
+export {hamburger, hamburgerDark, user, notification};
 export {fingerprint, Balancebg};
 export {
   loginbg,
@@ -95,4 +110,15 @@ export {
 
 export {carrefour, amazon, ikea, jumia};
 
+export {
+  addIcon,
+  addIconWhite,
+  optionIcon,
+  verticalView,
+  horizontalView,
+  moneyIcon,
+  telephoneIcon,
+  emptyPageIcon,
+};
+export {visa1, visa2, rightdialog, wrongdialog};
 // export const acc = require('./accounts.png');

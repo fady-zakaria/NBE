@@ -1,54 +1,51 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {StyleSheet, Text, View, I18nManager} from 'react-native';
 import React from 'react';
-import {homeTabs} from '../../fakers/dummyData';
-import {
-  TabImgContainer,
-  TabTextCont,
-  TabText,
-  TabContainer,
-} from './homeTabs.styles';
-
-const Item = ({name, image, color}) => (
-  <TouchableOpacity>
-    <TabContainer>
-      <TabImgContainer style={{backgroundColor: color}}>
-        <Image source={image} />
-      </TabImgContainer>
-      <TabTextCont>
-        <TabText>{name}</TabText>
-      </TabTextCont>
-    </TabContainer>
-  </TouchableOpacity>
-);
+import {accounts, utility, cards, history} from '../../constants/imgs';
+import {HomeTabsContainer} from './homeTabs.styles';
+import {useTranslation} from 'react-i18next';
+import i18n from '../../constants/ArabicLanguage/index';
+import OneHomeTab from '../OneHomeTab/OneHomeTab';
 
 const HomeTabs = () => {
-  const renderItem = ({item}) => (
-    <Item name={item.name} image={item.image} color={item.color} />
-  );
+  const {t, i18n} = useTranslation();
   return (
-    <View>
-      <FlatList
-        data={homeTabs}
-        horizontal={true}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        contentContainerStyle={{
-          marginLeft: 22,
-          display: 'flex',
-          alignItems: 'center',
-        }}
+    <HomeTabsContainer>
+      <OneHomeTab
+        name={t('Accounts')}
+        image={accounts}
+        color="rgba(0, 201, 116, 0.15)"
       />
-    </View>
+      <OneHomeTab
+        name={t('Cards')}
+        image={cards}
+        color="rgba(0, 173, 248, 0.15)"
+        style={styles.middlehometab}
+      />
+      <OneHomeTab
+        name={t('Utilities')}
+        image={utility}
+        color="rgba(246, 167, 33, 0.15)"
+        style={[I18nManager.isRTL ? styles.righthometab : styles.lefthometab]}
+      />
+      <OneHomeTab
+        name={t('History')}
+        image={history}
+        color="rgba(255, 0, 46, 0.15)"
+      />
+    </HomeTabsContainer>
   );
 };
 
 export default HomeTabs;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  middlehometab: {
+    marginHorizontal: 37,
+  },
+  righthometab: {
+    marginRight: 37,
+  },
+  lefthometab: {
+    marginRight: 37,
+  },
+});

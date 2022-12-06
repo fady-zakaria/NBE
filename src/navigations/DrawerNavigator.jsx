@@ -69,7 +69,9 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="Customer Services"
         component={BottomTabsNavigator}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+        }}
       />
     </Drawer.Navigator>
   );

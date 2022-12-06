@@ -1,4 +1,6 @@
+// import {async} from '@firebase/util';
 import {createSlice} from '@reduxjs/toolkit';
+import {fetchuser} from '../../../firebase/firebaseDatabase';
 
 const initialState = {
   firstName: '',
@@ -13,7 +15,7 @@ export const SignUpSlice = createSlice({
   initialState,
   reducers: {
     setFirstInputs: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;
@@ -41,12 +43,35 @@ export const SignUpSlice = createSlice({
   },
 });
 
+export const getUserData = userId => {
+  return async dispatch => {
+    const getuser = async () => {
+      const user = await fetchuser(userId);
+      return user;
+    };
+    try {
+      const userData = await getuser();
+      console.log('from login page user data', userData);
+      dispatch(
+        setUserData({
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          email: userData.email,
+          mobileNumber: userData.mobileNumber,
+        }),
+      );
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+};
+
 export const {
   setFirstInputs,
   removeInputs,
   setMobile,
   setPassword,
-  setuserData,
+  setUserData,
 } = SignUpSlice.actions;
 
 export const UserInputs = state => state.signupinputs;

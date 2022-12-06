@@ -2,9 +2,8 @@ import styled from 'styled-components/native';
 import {colors} from '../../utils/colors';
 
 export const NavbtnTitle = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto-Bold';
   font-style: normal;
-  font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   display: flex;

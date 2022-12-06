@@ -15,7 +15,7 @@ import {
 
 const TabBarButtonIcon = ({routeName, isfocused}) => {
   const [ImageSource, setImageSource] = useState();
-  //   console.log('route name', routeName);
+
   useLayoutEffect(() => {
     if (routeName === 'Home') {
       isfocused

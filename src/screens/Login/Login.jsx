@@ -16,11 +16,17 @@ import LoginHeader from '../../components/LoginHeader/LoginHeader';
 import {useDispatch, useSelector} from 'react-redux';
 import {setAuthToken, UserAuth} from '../../redux/features/auth/authSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTranslation} from 'react-i18next';
+import i18n from '../../constants/ArabicLanguage/index';
+import {LanguageIndicator} from '../../redux/features/ArabicMode/ArabicModeSlice';
 
 const Login = ({navigation}) => {
+  const {t, i18n} = useTranslation();
   const userAuth = useSelector(UserAuth);
   const dispatch = useDispatch();
   console.log('user Auth from login', userAuth);
+
+  const isArabicLang = useSelector(LanguageIndicator);
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -44,11 +50,11 @@ const Login = ({navigation}) => {
             <LoginHeader />
           </View>
           <View style={styles.loginContent}>
-            <LoginTitle numberOfLines={3}>
-              Welcome to {'\n'}
-              The National Bank of Egypt
-            </LoginTitle>
+            <LoginTitle>{t('Welcome to')}</LoginTitle>
+            <LoginTitle>{t('the National Bank')}</LoginTitle>
+            <LoginTitle>{t('of Egypt')}</LoginTitle>
           </View>
+
           <LoginInput />
           <Footer />
         </ImageBackground>
@@ -68,7 +74,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   loginContent: {
-    marginTop: '50%',
+    marginTop: 220,
+    paddingBottom: 10,
   },
   image: {
     flex: 1,

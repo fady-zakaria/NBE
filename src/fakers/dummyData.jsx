@@ -1,74 +1,55 @@
-import {accounts, utility, cards, history} from '../constants/imgs';
 import {user1, user2, user3, user4} from '../constants/imgs';
 import {carrefour, jumia, amazon, ikea} from '../constants/imgs';
-
-export const homeTabs = [
-  {
-    id: 1,
-    name: 'Accounts',
-    image: accounts,
-    color: 'rgba(0, 201, 116, 0.15)',
-  },
-  {
-    id: 2,
-    name: 'Cards',
-    image: cards,
-    color: 'rgba(0, 173, 248, 0.15)',
-  },
-  {
-    id: 3,
-    name: 'Utilities',
-    image: utility,
-    color: 'rgba(246, 167, 33, 0.15)',
-  },
-  {
-    id: 4,
-    name: 'History',
-    image: history,
-    color: 'rgba(255, 0, 46, 0.15)',
-  },
-];
+import {visa1, visa2} from '../constants/imgs';
 
 export const Users = [
   {
     id: 1,
     name: 'Hala',
     image: user1,
+    arabicName: 'حلا',
   },
   {
     id: 2,
     name: 'Ayman',
     image: user2,
+    arabicName: 'أيمن',
   },
   {
     id: 3,
     name: 'Alex',
     image: user3,
+    arabicName: 'Alex',
   },
   {
     id: 4,
     name: 'Soha',
     image: user4,
+    arabicName: 'سها',
   },
   {
     id: 5,
     name: 'Hala',
     image: user1,
+    arabicName: 'حلا',
   },
   {
     id: 6,
     name: 'Ayman',
     image: user2,
+    arabicName: 'أيمن',
   },
   {
     id: 7,
     name: 'Alex',
     image: user3,
+    arabicName: 'حلا',
   },
   {
     id: 8,
     name: 'Soha',
     image: user4,
+    arabicName: 'سها',
   },
 ];
 
@@ -142,5 +123,75 @@ export const TransactionsHistory = [
     icon: ikea,
     transaction: '$12,547.96',
     date: '03-11-2021',
+  },
+];
+
+// export const BeneficiariesData = [
+//   {
+//     id: 1,
+//     firstName: 'Mike',
+//     lastName: '',
+//     arabicName: '',
+//     email: '',
+//     phoneNumber: '+20 123 456 7890',
+//     image: user1,
+//     bankBranch: '',
+//     accountNumber: '',
+//     balance: '$64,175.82',
+//     TransactionsHistory: {
+//       name: 'Flat Rent',
+//       date: '15-12-2021',
+//       amount: '$892,48.0',
+//     },
+//   },
+//   {
+//     id: 1,
+//     firstName: 'Jasmine',
+//     lastName: 'Robert',
+//     arabicName: '',
+//     email: 'JasmineR@gmail.com',
+//     phoneNumber: '+20 123 456 7890',
+//     image:
+//       'https://firebasestorage.googleapis.com/v0/b/nbe-react-native.appspot.com/o/AccountsImages%2Fuser2.png?alt=media&token=e6ff195b-5c0a-47fb-9634-22ad22026c21',
+//     bankBranch: '043 - Water Way Mall',
+//     accountNumber: 'EG150003004250008857447010180',
+//     balance: '$64,175.82',
+//     TransactionsHistory: [
+//       {
+//         TransactionsId: 1,
+//         name: 'Flat Rent',
+//         date: '15-12-2021',
+//         amount: '$892,48.0',
+//       },
+//       {
+//         TransactionsId: 2,
+//         name: 'House Fixes',
+//         date: '20-5-2021',
+//         amount: '$764,92.0',
+//       },
+//     ],
+//   },
+// ];
+
+export const cardsData = [
+  {
+    id: 1,
+    name: 'GreenVisa',
+    visa: visa1,
+  },
+  {
+    id: 2,
+    name: 'RedVisa',
+    visa: visa2,
+  },
+  {
+    id: 3,
+    name: 'GreenVisa',
+    visa: visa1,
+  },
+  {
+    id: 4,
+    name: 'RedVisa',
+    visa: visa2,
   },
 ];

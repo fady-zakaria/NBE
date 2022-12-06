@@ -5,7 +5,7 @@ export const DrawerTitle = styled.View`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 35px;
-  padding-left: 20;
+  padding-left: 20px;
 `;
 
 // export const ArabicbtnText = styled.Text`

@@ -10,59 +10,69 @@ import {
   View,
   Image,
   TextInput,
+  LogBox,
 } from 'react-native';
 import Balance from '../../components/Balance/Balance';
 import Header from '../../components/Header/Header';
 import History from '../../components/History/History';
 import HomeTabs from '../../components/HomeTabs/HomeTabs';
 import UserList from '../../components/UserList/UserList';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useRoute} from '@react-navigation/native';
 import {UserAuth} from '../../redux/features/auth/authSlice';
 import {UserInputs} from '../../redux/features/Signup/SignupSlice';
 import {fetchuser} from '../../firebase/firebaseDatabase';
+import {HomeContainer} from './Home.styles';
+import {ThemeIndicator} from '../../redux/features/UI_Theme/UI_ThemeSlice';
 
 const Home = () => {
   const userAuth = useSelector(UserAuth);
-  console.log('user Auth from Home', userAuth);
-  const route = useRoute();
-  // const newuserinputs = useSelector(UserInputs);
-  // console.log('from home Screen user Data', newuserinputs);
+  const dispatch = useDispatch();
+  console.log('user Auth from Home***********************', userAuth);
 
+  // console.log('route ****************************', route);
+  // const userId = route.params;
+  // console.log(userId);
+  const newuserinputs = useSelector(UserInputs);
+  console.log('from home Screen user Data', newuserinputs);
+
+  const isDarkMode = useSelector(ThemeIndicator);
   // useEffect(() => {
-  //   const userId = route.params.userId;
   //   const getuser = async () => {
-  //     fetchuser(userId);
+  //     const userData = fetchuser(userAuth.userId);
+  //     dispatch(
+  //       setUserData({
+  //         firstName: userData.firstName,
+  //         lastName: userData.lastName,
+  //         email: userData.email,
+  //         mobileNumber: userData.mobileNumber,
+  //       }),
+  //     );
   //   };
-  //   // StoreUserData(
-  //   //   newuserinputs.firstName,
-  //   //   newuserinputs.lastName,
-  //   //   newuserinputs.email,
-  //   //   newuserinputs.mobileNumber,
-  //   // );
-  //   if (userId) {
+  //   if (userAuth.userId) {
   //     getuser();
   //   }
   // }, []);
+
   return (
     <ScrollView>
-      <View style={styles.HomeContainer}>
+      <HomeContainer darkMode={isDarkMode}>
         <Header />
         <Balance />
         <HomeTabs />
         <UserList />
         <History />
-      </View>
+      </HomeContainer>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  HomeContainer: {
-    backgroundColor: '#F1F3FB',
-    flex: 1,
-    marginTop: 16,
-  },
+  // HomeContainer: {
+  //   backgroundColor: '#F1F3FB',
+  //   flex: 1,
+  //   marginTop: 16,
+  // },
 });
 
 export default Home;

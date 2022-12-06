@@ -1,5 +1,11 @@
-import {StyleSheet, Text, View, useColorScheme} from 'react-native';
-import React, {useLayoutEffect} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  useColorScheme,
+  I18nManager,
+} from 'react-native';
+import React, {useLayoutEffect, useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../screens/Login/Login';
 import Verification from '../screens/Verification/Verification';
@@ -13,6 +19,10 @@ import {
 import {colors} from '../utils/colors';
 import SignUp from '../screens/SignUp/SignUp';
 import Password from '../screens/Password/Password';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {getLang} from '../redux/features/ArabicMode/ArabicModeSlice';
+import {getBeneficiaries} from '../firebase/firebaseDatabase';
+import {getAccountsData} from '../redux/features/Beneficiaries/BeneficiariesSlice';
 
 const Stack = createStackNavigator();
 
@@ -28,8 +38,17 @@ const StackNavigator = () => {
     }
   }, [colorScheme]);
 
-  console.log('isDarkMode', isDarkMode);
-  console.log('color scheme', colorScheme);
+  // useEffect(() => {
+  // }, []);
+  dispatch(getLang());
+
+  useEffect(() => {
+    dispatch(getAccountsData());
+  }, []);
+
+  // I18nManager.forceRTL(false);
+  // console.log('isDarkMode', isDarkMode);
+  // console.log('color scheme', colorScheme);
 
   const isDarkMode = useSelector(ThemeIndicator);
   const DarkmodeBg = isDarkMode ? colors.Darkbg : colors.lightbg;

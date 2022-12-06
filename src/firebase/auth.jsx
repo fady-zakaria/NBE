@@ -9,7 +9,7 @@ export const createUser = async (email, password) => {
       returnSecureToken: true,
     },
   );
-  console.log(response.data);
+  // console.log(response.data);
   const token = response.data.idToken;
   const localid = response.data.localId;
   const authdata = {
@@ -28,7 +28,7 @@ export const LogInUser = async (email, password) => {
       returnSecureToken: true,
     },
   );
-  console.log(response.data);
+  // console.log(response.data);
   const token = response.data.idToken;
   const localid = response.data.localId;
   const authdata = {
