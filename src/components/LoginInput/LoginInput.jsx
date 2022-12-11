@@ -76,7 +76,15 @@ const LoginInput = () => {
         AsyncStorage.setItem('token', token);
       }
 
-      navigation.navigate('Home');
+      // navigation.navigate('Home');
+      navigation.reset({
+        index: 0,
+        routes: [
+          {
+            name: 'Home',
+          },
+        ],
+      });
     } catch (error) {
       console.log(error);
       Alert.alert('Failed Credentials', error.message);

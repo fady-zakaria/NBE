@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import React from 'react';
-import AddAccount from '../AddAccount/AddAccount';
+import AddAccountBtn from '../AddAccountBtn/AddAccountBtn';
 import {ThemeIndicator} from '../../redux/features/UI_Theme/UI_ThemeSlice';
 import {useSelector} from 'react-redux';
 import {emptyPageIcon} from '../../constants/imgs';
@@ -22,7 +22,7 @@ const EmptyBenficiaries = () => {
       <EmptyDescText darkMode={isDarkMode}>
         {t('You don’t have beneficiaries, add some so you can send money')}
       </EmptyDescText>
-      <AddAccount bgColor={'green'} />
+      <AddAccountBtn bgColor={'green'} />
     </View>
   );
 };

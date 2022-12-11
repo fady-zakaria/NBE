@@ -61,10 +61,9 @@ import telephoneIcon from '../assets/icons/telephone.png';
 import emptyPageIcon from '../assets/images/empty_page.png';
 import visa1 from '../assets/images/visa1.png';
 import visa2 from '../assets/images/visa2.png';
-// import dragBox from '../assets/images/Dragbox.png';
-// import dragBoxDark from '../assets/images/DragboxDark.png';
 import rightdialog from '../assets/images/rightdialog.png';
 import wrongdialog from '../assets/images/wrongdialog.png';
+import camera from '../assets/icons/camera.png';
 
 export {accounts, utility, cards, history};
 export {user1, user2, user3, user4};
@@ -119,6 +118,7 @@ export {
   moneyIcon,
   telephoneIcon,
   emptyPageIcon,
+  camera,
 };
 export {visa1, visa2, rightdialog, wrongdialog};
 // export const acc = require('./accounts.png');

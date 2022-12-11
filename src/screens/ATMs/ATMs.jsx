@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Alert} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Header from '../../components/Header/Header';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
@@ -14,11 +14,15 @@ const ATMs = () => {
 
   useEffect(() => {
     try {
-      Geolocation.getCurrentPosition(position => {
-        const coordinates = position.coords;
-        setLatitude(coordinates.latitude);
-        setLongitude(coordinates.longitude);
-      });
+      Geolocation.getCurrentPosition(
+        position => {
+          const coordinates = position.coords;
+          setLatitude(coordinates.latitude);
+          setLongitude(coordinates.longitude);
+        },
+        error => Alert.alert('Error', JSON.stringify(error)),
+        {enableHighAccuracy: false, timeout: 2000},
+      );
     } catch (error) {
       console.log(error);
     }

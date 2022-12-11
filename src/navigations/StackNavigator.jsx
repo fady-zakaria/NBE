@@ -23,7 +23,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getLang} from '../redux/features/ArabicMode/ArabicModeSlice';
 import {getBeneficiaries} from '../firebase/firebaseDatabase';
 import {getAccountsData} from '../redux/features/Beneficiaries/BeneficiariesSlice';
-
+import TransactionHistory from '../screens/TransactionHistory/TransactionHistory';
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
@@ -92,6 +92,7 @@ const StackNavigator = () => {
         component={DrawerNavigator}
         options={{headerShown: false}}
       />
+      {/* <Stack.Screen name="TransactionHistory" component={TransactionHistory} /> */}
     </Stack.Navigator>
   );
 };

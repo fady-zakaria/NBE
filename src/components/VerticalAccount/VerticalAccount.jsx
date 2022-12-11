@@ -16,9 +16,10 @@ import {
   AccountInfoWrapper,
   AccountWrapper,
 } from './VerticalAccount.styles';
+import {useNavigation} from '@react-navigation/native';
 
-const HorizontalAccount = ({
-  AccountId,
+const VerticalAccount = ({
+  accountId,
   firstName,
   lastName,
   image,
@@ -26,14 +27,16 @@ const HorizontalAccount = ({
   phoneNumber,
   balance,
 }) => {
+  const navigation = useNavigation();
   const accountHandler = id => {
     console.log('Account id*', id);
+    navigation.navigate('TransactionHistory', {accountId: id});
   };
   return (
     <View>
       <TouchableOpacity
         onPress={() => {
-          accountHandler(AccountId);
+          accountHandler(accountId);
         }}>
         <AccountContainer>
           <AccountWrapper>
@@ -82,7 +85,7 @@ const HorizontalAccount = ({
   );
 };
 
-export default HorizontalAccount;
+export default VerticalAccount;
 
 const styles = StyleSheet.create({
   ImageContainer: {

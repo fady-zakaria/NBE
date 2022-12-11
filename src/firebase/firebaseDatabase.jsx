@@ -10,6 +10,7 @@ import {initializeApp} from 'firebase/app';
 import {getAuth} from 'firebase/auth';
 import {getDatabase, ref, set, child, get, onValue} from 'firebase/database';
 // import {useDispatch} from 'react-redux';
+import {getStorage} from 'firebase/storage';
 import {setuserData} from '../redux/features/Signup/SignupSlice';
 
 // const dispatch = useDispatch();
@@ -102,6 +103,13 @@ export const getBeneficiaries = async () => {
   }
   // console.log('Accounts from firebase', Accounts);
   return Accounts;
+};
+
+const storage = getStorage(firebaseapp);
+
+export const uploadImage = async uri => {
+  const filename = uri.substring(uri.lastIndexOf('/') + 1);
+  const storageRef = ref(storage, `/images/${filename}`);
 };
 
 // export const getUserData = userId => {

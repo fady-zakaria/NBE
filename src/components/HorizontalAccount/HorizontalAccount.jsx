@@ -14,7 +14,13 @@ import {
 } from './HorizontalAccount.styles';
 import {SmallTitleParagraph} from '../../constants/styles';
 
-const VerticalAccount = ({index, AccountId, firstName, image, arabicName}) => {
+const HorizontalAccount = ({
+  index,
+  AccountId,
+  firstName,
+  image,
+  arabicName,
+}) => {
   const accountHandler = id => {
     console.log('Account id*', id);
   };
@@ -66,7 +72,7 @@ const VerticalAccount = ({index, AccountId, firstName, image, arabicName}) => {
   );
 };
 
-export default VerticalAccount;
+export default HorizontalAccount;
 
 const styles = StyleSheet.create({
   AccountContainerStyles: {

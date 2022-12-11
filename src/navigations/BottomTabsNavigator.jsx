@@ -12,6 +12,7 @@ import TabBarButtonLabel from '../components/CustomTabNavigation/TabBarButtonLab
 import {useSelector} from 'react-redux';
 import {ThemeIndicator} from '../redux/features/UI_Theme/UI_ThemeSlice';
 import {colors} from '../utils/colors';
+import InnerStackNavigator from './InnerStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ const BottomTabsNavigator = () => {
       })}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Transfer" component={Transfer} />
-      <Tab.Screen name="Beneficiaries" component={Beneficiaries} />
+      <Tab.Screen name="Beneficiaries" component={InnerStackNavigator} />
       <Tab.Screen name="ATMs" component={ATMs} />
       <Tab.Screen name="Air Pay" component={AirPay} />
     </Tab.Navigator>

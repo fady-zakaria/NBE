@@ -21,7 +21,7 @@ import {
 import {useSelector} from 'react-redux';
 import {ThemeIndicator} from '../../redux/features/UI_Theme/UI_ThemeSlice';
 import Header from '../../components/Header/Header';
-import AddAccount from '../../components/AddAccount/AddAccount';
+import AddAccountBtn from '../../components/AddAccountBtn/AddAccountBtn';
 import {Column, Row, TitleParagraph} from '../../constants/styles';
 import {BeneficiariesData} from '../../redux/features/Beneficiaries/BeneficiariesSlice';
 import {useTranslation} from 'react-i18next';
@@ -30,8 +30,10 @@ import HorizontalAccount from '../../components/HorizontalAccount/HorizontalAcco
 import VerticalAccount from '../../components/VerticalAccount/VerticalAccount';
 import FormatSwitch from '../../components/FormatSwitch/FormatSwitch';
 import EmptyBenficiaries from '../../components/EmptyBenficiaries/EmptyBenficiaries';
+// import {useNavigation} from '@react-navigation/native';
 
 const Beneficiaries = () => {
+  // const navigation = useNavigation();
   const [accountsFormat, setAccountsFormat] = useState('vertical');
   console.log(accountsFormat);
   const isDarkMode = useSelector(ThemeIndicator);
@@ -45,7 +47,7 @@ const Beneficiaries = () => {
   const renderItem = ({item, index}) => (
     <HorizontalAccount
       index={index}
-      AccountId={item.id}
+      accountId={item.id}
       firstName={item.firstName}
       image={item.image}
       arabicName={item.arabicName}
@@ -67,7 +69,7 @@ const Beneficiaries = () => {
               </TitleParagraph>
               <Row>
                 <FormatSwitch accountsFormatHandler={accountsFormatHandler} />
-                <AddAccount bgColor={'white'} />
+                <AddAccountBtn bgColor={'white'} />
               </Row>
             </BeneficiariesHeader>
             {Accounts.accounts.length !== 0 ? (
@@ -90,7 +92,7 @@ const Beneficiaries = () => {
                     {Accounts.accounts.map(item => (
                       <VerticalAccount
                         key={item.id}
-                        AccountId={item.id}
+                        accountId={item.id}
                         firstName={item.firstName}
                         lastName={item.lastName}
                         image={item.image}
