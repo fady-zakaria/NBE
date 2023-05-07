@@ -24,7 +24,7 @@ const Login = ({navigation}) => {
   const {t, i18n} = useTranslation();
   const userAuth = useSelector(UserAuth);
   const dispatch = useDispatch();
-  console.log('user Auth from login', userAuth);
+  // console.log('user Auth from login', userAuth);
 
   const isArabicLang = useSelector(LanguageIndicator);
 

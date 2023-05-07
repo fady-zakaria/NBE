@@ -25,10 +25,10 @@ export const getLang = () => {
   return async dispatch => {
     try {
       const isArabic = await AsyncStorage.getItem('arabicMode');
-      console.log(
-        'from Async Storage page arabicLang***********************',
-        isArabic,
-      );
+      // console.log(
+      //   'from Async Storage page arabicLang***********************',
+      //   isArabic,
+      // );
       if (isArabic === 'true') {
         i18n.changeLanguage('ar');
       } else if (isArabic === 'false') {

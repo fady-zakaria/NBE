@@ -63,7 +63,7 @@ const SignUp = () => {
                 initialValues={{firstName: '', lastName: '', email: ''}}
                 validationSchema={userInputsValidation}
                 onSubmit={(values, actions) => {
-                  console.log(values);
+                  // console.log(values);
                   dispatch(
                     setFirstInputs({
                       firstName: values.firstName,

@@ -15,7 +15,7 @@ const Verification = () => {
   const navigation = useNavigation();
   const isDarkMode = useSelector(ThemeIndicator);
   const newuserinputs = useSelector(UserInputs);
-  console.log('from verificarion', newuserinputs);
+  // console.log('from verificarion', newuserinputs);
   // console.log('from verificarion', newuserinputs.mobileNumber);
   // const route = useRoute();
   // const MobileNumber = route.params.userMobileNumber;

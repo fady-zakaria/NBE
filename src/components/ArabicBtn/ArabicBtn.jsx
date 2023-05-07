@@ -20,7 +20,7 @@ const ArabicBtn = () => {
   const [arabicLang, setArabicLang] = useState(false);
   const dispatch = useDispatch();
   const isArabicLang = useSelector(LanguageIndicator);
-  console.log('from arabic btn isArabicLang ....... ', isArabicLang);
+  // console.log('from arabic btn isArabicLang ....... ', isArabicLang);
 
   const LanguageHandler = () => {
     if (I18nManager.isRTL) {

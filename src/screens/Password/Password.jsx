@@ -23,7 +23,7 @@ const Password = () => {
   const dispatch = useDispatch();
 
   const newuserinputs = useSelector(UserInputs);
-  console.log('from password Screen', newuserinputs);
+  // console.log('from password Screen', newuserinputs);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -56,18 +56,18 @@ const Password = () => {
   });
 
   const SubmitHandler = async (values, actions) => {
-    console.log(values);
+    // console.log(values);
     dispatch(setPassword({password: values.password}));
-    console.log(newuserinputs.email);
-    console.log(values.password);
+    // console.log(newuserinputs.email);
+    // console.log(values.password);
     try {
       const {token, localid} = await createUser(
         newuserinputs.email,
         values.password,
       );
       dispatch(setUserAuth({token: token, userId: localid}));
-      console.log('token from password', token);
-      console.log('local id from password', localid);
+      // console.log('token from password', token);
+      // console.log('local id from password', localid);
       StoreUserData(
         localid,
         newuserinputs.firstName,

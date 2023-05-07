@@ -59,7 +59,7 @@ const LoginInput = () => {
   const [PassVisiablity, setPassVisiablity] = useState(false);
 
   const isArabicLang = useSelector(LanguageIndicator);
-  console.log('from login', isArabicLang);
+  // console.log('from login', isArabicLang);
 
   const UserEmailHandler = userEmail => {
     setEmail(userEmail);

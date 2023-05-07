@@ -22,7 +22,7 @@ const HorizontalAccount = ({
   arabicName,
 }) => {
   const accountHandler = id => {
-    console.log('Account id*', id);
+    // console.log('Account id*', id);
   };
   return (
     <View

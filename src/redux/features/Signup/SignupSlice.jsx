@@ -51,7 +51,7 @@ export const getUserData = userId => {
     };
     try {
       const userData = await getuser();
-      console.log('from login page user data', userData);
+      // console.log('from login page user data', userData);
       dispatch(
         setUserData({
           firstName: userData.firstName,

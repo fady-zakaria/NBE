@@ -16,8 +16,7 @@ import {
 // import MobileNumber from './src/screens/MobileNumber/MobileNumber';
 // import Verification from './src/screens/Verification/Verification';
 // import DrawerNavigator from './src/navigations/DrawerNavigator';
-import {store} from './src/redux/store';
-import {Provider} from 'react-redux';
+
 import StackNavigator from './src/navigations/StackNavigator';
 
 // const Stack = createStackNavigator();
@@ -25,7 +24,6 @@ import StackNavigator from './src/navigations/StackNavigator';
 const App = () => {
   return (
     <>
-      <Provider store={store}>
         <NavigationContainer>
           {/* <SafeAreaView style={styles.appContainer}> */}
           {/* <KeyboardAvoidingView style={styles.screen} behavior="position"> */}
@@ -34,7 +32,6 @@ const App = () => {
           {/* </KeyboardAvoidingView> */}
           {/* </SafeAreaView> */}
         </NavigationContainer>
-      </Provider>
     </>
   );
 };

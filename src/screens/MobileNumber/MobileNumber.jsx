@@ -23,7 +23,7 @@ const MobileNumber = () => {
   const dispatch = useDispatch();
 
   const newuserinputs = useSelector(UserInputs);
-  console.log('from Mobile Number', newuserinputs);
+  // console.log('from Mobile Number', newuserinputs);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -49,7 +49,7 @@ const MobileNumber = () => {
           initialValues={{mobileNumber: ''}}
           validationSchema={mobileValidation}
           onSubmit={(values, actions) => {
-            console.log(values);
+            // console.log(values);
             dispatch(
               setMobile({
                 mobileNumber: values.mobileNumber,

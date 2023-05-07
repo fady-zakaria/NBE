@@ -4,8 +4,10 @@ import signupReducer from '../redux/features/Signup/SignupSlice';
 import authReducer from '../redux/features/auth/authSlice';
 import ArabicReducer from '../redux/features/ArabicMode/ArabicModeSlice';
 import BeneficiariesReducer from '../redux/features/Beneficiaries/BeneficiariesSlice';
+import Reactotron from '../../ReactotronConfig';
+// import logger from 'redux-logger';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     theme: ThemeReducer,
     arabic: ArabicReducer,
@@ -13,4 +15,10 @@ export const store = configureStore({
     auth: authReducer,
     Beneficiaries: BeneficiariesReducer,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware(),
+  // middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
+  enhancers: [Reactotron.createEnhancer()],
+  devTools: true,
 });
+
+export default store;
